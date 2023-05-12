@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: order-service 
+
+# 配置eureka客户端信息
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
+    # instance-id: order-service
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
